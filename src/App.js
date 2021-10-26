@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import Tweet from './components/Tweet';
+import CreateTweet from './components/CreateTweet';
+// let name = "Tamara";
 function App() {
+const [name, setName] = useState('Tamara');
+const sayHello = (e) => {
+  // const name = "Bob";
+  setName('Bob');
+  console.log(name);
+};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h4>Hello Twitter </h4>
+      <CreateTweet/>
+     <Tweet name={name}/>
+     <button onClick={sayHello}>Click</button>
     </div>
   );
 }
